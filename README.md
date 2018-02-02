@@ -1,0 +1,2 @@
+# thickcircleline
+PROTO ThickCircleLine
