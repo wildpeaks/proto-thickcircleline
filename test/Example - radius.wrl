@@ -1,0 +1,53 @@
+#VRML V2.0 utf8
+
+EXTERNPROTO ThickCircleLine [
+	exposedField  SFFloat  thickness
+	exposedField  SFFloat  thicknessTesselation
+	exposedField  SFFloat  radius
+	exposedField  SFFloat  radiusTesselation
+	field         SFFloat  creaseAngle
+] "../src/proto.ThickCircleLine.wrl#ThickCircleLine"
+
+WorldInfo {
+	title "radius"
+}
+
+Viewpoint {
+	position 0.000 0.000 3.419
+	fieldOfView 0.785
+	description	"Default"
+}
+
+Transform {
+	rotation 1 0 0 0.5
+	children [
+		Transform {
+			translation -1.2 0 0
+			rotation 1 0 0 1.57
+			children Shape {
+				appearance Appearance {
+					material Material {
+						emissiveColor 0 1 0
+					}
+				}
+				geometry ThickCircleLine {
+					radius 1
+				}
+			}
+		}
+		Transform {
+			translation 1.2 0 0
+			rotation 1 0 0 1.57
+			children Shape {
+				appearance Appearance {
+					material Material {
+						emissiveColor 0 1 0
+					}
+				}
+				geometry ThickCircleLine {
+					radius 0.5
+				}
+			}
+		}
+	]
+}
