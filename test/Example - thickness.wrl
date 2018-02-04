@@ -33,10 +33,6 @@ Transform {
 				}
 				geometry ThickCircleLine {
 					thickness 0.1
-#					thicknessTesselation 4
-#					radius 1
-#					radiusTesselation 32
-#					creaseAngle 0
 				}
 			}
 		}
@@ -51,10 +47,6 @@ Transform {
 				}
 				geometry ThickCircleLine {
 					thickness 0.01
-#					thicknessTesselation 4
-#					radius 1
-#					radiusTesselation 32
-#					creaseAngle 0
 				}
 			}
 		}
