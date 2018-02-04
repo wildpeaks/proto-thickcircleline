@@ -1,0 +1,59 @@
+#VRML V2.0 utf8
+
+EXTERNPROTO ThickLine [
+	exposedField  MFVec3f  spine
+	exposedField  SFFloat  thickness
+	exposedField  SFFloat  thicknessTesselation
+	field         SFFloat  creaseAngle
+	field         SFBool   beginCap
+	field         SFBool   endCap
+] "proto.ThickLine.wrl#ThickLine"
+
+PROTO ThickCircleLine [
+	exposedField  SFFloat  thickness             0.1
+	exposedField  SFFloat  thicknessTesselation  4
+	exposedField  SFFloat  radius                1
+	exposedField  SFFloat  radiusTesselation     32
+	field         SFFloat  creaseAngle           0
+]{
+	DEF extrusion ThickLine {
+		thickness IS thickness
+		thicknessTesselation IS thicknessTesselation
+		creaseAngle IS creaseAngle
+		beginCap FALSE
+		endCap FALSE
+	}
+
+	Script {
+		exposedField  SFFloat  radius             IS radius
+		exposedField  SFFloat  radiusTesselation  IS radiusTesselation
+		field         SFNode   extrusion          USE extrusion
+
+		directOutput TRUE
+		url "javascript:
+
+		function refresh(){
+			var positions = new MFVec3f();
+			positions.length = radiusTesselation + 1;
+			var angle = 0;
+			var angleBetween = 2 * Math.PI / radiusTesselation;
+			for (var i = 0; i < radiusTesselation; i++){
+				positions[i] = new SFVec3f(radius * Math.sin(angle), 0, radius * Math.cos(angle));
+				angle += angleBetween;
+			}
+			positions[radiusTesselation] = positions[0];
+			extrusion.set_spine = positions;
+		}
+
+		function radius(){}
+		function radiusTesselation(){}
+		function initialize(){
+			refresh();
+		}
+		function eventsProcessed(){
+			refresh();
+		}
+
+		"
+	}
+}
