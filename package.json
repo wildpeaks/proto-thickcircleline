@@ -1,0 +1,23 @@
+{
+  "name": "@wildpeaks/proto-thickcircleline",
+  "version": "1.0.0",
+  "description": "PROTO ThickCircleLine",
+  "main": "src/proto.ThickCircleLine.wrl",
+  "files": [
+    "src/proto.ThickCircleLine.wrl"
+  ],
+  "repository": "https://github.com/wildpeaks/proto-thickcircleline",
+  "keywords": [
+    "wildpeaks",
+    "vrml"
+  ],
+  "author": "Cecile Muller",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wildpeaks/proto-thickcircleline/issues"
+  },
+  "homepage": "https://github.com/wildpeaks/proto-thickcircleline#readme",
+  "dependencies": {
+    "@wildpeaks/proto-thickline": "1.0.0"
+  }
+}
